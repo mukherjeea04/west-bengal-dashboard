@@ -1,0 +1,332 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+body {
+    margin: 0;
+    background-color: #688cd3;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0c1ae0;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD
+   ========================================================= */
+
+.dashboard-container {
+    width: 94%;
+    max-width: 1500px;
+    margin: 25px auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.dashboard-header {
+    background-color: rgb(245, 241, 241);
+    border: 2px solid #d61a75;
+    border-radius: 10px;
+    padding: 22px 28px;
+    margin-bottom: 18px;
+}
+
+.dashboard-title {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.dashboard-subtitle {
+    margin-top: 6px;
+    color: #d61a75;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CONTROL PANEL
+   ========================================================= */
+
+.control-panel {
+    background-color: rgb(245, 241, 241);
+    border: 2px solid #d61a75;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+}
+
+.control-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #d61a75;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    display: flex;
+    gap: 18px;
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   MAP
+   ========================================================= */
+
+.map-container {
+    width: 62%;
+    height: 600px;
+    background-color:  rgb(245, 241, 241);
+    border: 2px solid #d61a75;
+    border-radius: 0px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================================
+   RIGHT INFORMATION PANEL
+   ========================================================= */
+
+.info-panel {
+    width: 38%;
+    height: 600px;
+    background-color: white;
+    border: 2px solid #d61a75;
+    border-radius: 10px;
+    padding: 40px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.panel-heading {
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.panel-divider {
+    border: none;
+    border-top: 1px solid #d61a75;
+    margin: 22px 0;
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.summary-indicator {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.state-value {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    color: green;
+}
+
+.summary-year {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    color: #d61a75;
+    margin-bottom: 10px;
+}
+
+.district-name {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 12px;
+}
+
+.district-value {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 6px;
+    color: green;
+}
+
+.hover-instruction {
+    text-align: center;
+    color: #d61a75;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   TREND PANEL
+   ========================================================= */
+
+.trend-container {
+    background-color: white;
+    border: 2px solid #d61a75;
+    border-radius: 10px;
+    margin-top: 18px;
+    padding: 20px 24px;
+}
+
+.trend-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.trend-graph-container {
+    width: 58%;
+    border-radius: 6px;
+
+    background-color: white;
+
+    padding: 4px;
+
+    overflow: hidden;
+}
+
+.trend-custom-legend {
+    width: 42%;
+    padding-left: 45px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 2px solid #d61a75;
+
+}
+
+.trend-heading {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.trend-subtitle {
+    font-size: 13px;
+    color: #d61a75;
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DROPDOWNS
+   ========================================================= */
+
+.Select-control {
+    border-radius: 6px !important;
+    border-color: #d61a75 ;
+}
+
+.Select-control:hover {
+    border-color: #9ca3af !important;
+}
+
+
+/* =========================================================
+   DISTRICT SUMMARY
+   ========================================================= */
+
+.district-summary-content {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.district-name {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.district-value {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+.district-summary-content .summary-year {
+    font-size: 17px;
+    font-weight: 500;
+    color: #d61a75;
+}
+
+/* Hide Plotly's map hover tooltip */
+.map-container .hovertext {
+    display: none !important;
+}
+
+/* =========================================================
+   CUSTOM TREND LEGEND
+   ========================================================= */
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 18px 0;
+}
+
+.legend-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 14px;
+    flex-shrink: 0;
+}
+
+.state-dot {
+    background-color: #1f4e79;
+    border: 2px solid black;
+}
+
+.district-dot {
+    background-color: #c55a11;
+    border: 2px solid black;
+}
+
+.legend-name {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.state-name {
+    color: #1f4e79;
+}
+
+.district-name-legend {
+    color: #c55a11;
+}
