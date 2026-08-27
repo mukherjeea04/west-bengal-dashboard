@@ -221,7 +221,7 @@ app.layout = html.Div(
                             id="district-map",
 
                             style={
-                                "height": "600px",
+                                "height": "100%",
                                 "width":"100%"
                             },
 
@@ -452,7 +452,7 @@ def update_map(selected_year, selected_indicator):
             "lon": center_lon
         },
 
-        zoom=6,
+        zoom=5.8,
 
         labels={
             "value": selected_indicator
