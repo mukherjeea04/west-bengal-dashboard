@@ -10,7 +10,7 @@ import plotly.express as px
 
 df = pd.read_csv("Dashboard_data.csv")
 
-gdf = gpd.read_file("WEST_BENGAL_DISTRICT_BDY.geojson")
+gdf = gpd.read_file("WEST_BENGAL_DISTRICT_WEB.geojson")
 
 # ============================================================
 # STATE-LEVEL VALUES
