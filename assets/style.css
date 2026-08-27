@@ -330,3 +330,111 @@ body {
 .district-name-legend {
     color: #c55a11;
 }
+
+/* =========================================================
+   MOBILE RESPONSIVE LAYOUT
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .dashboard-container {
+        width: 94%;
+        margin: 12px auto;
+    }
+
+    /* HEADER */
+
+    .dashboard-header {
+        padding: 18px;
+        margin-bottom: 12px;
+    }
+
+    .dashboard-title {
+        font-size: 23px;
+    }
+
+    .dashboard-subtitle {
+        font-size: 12px;
+    }
+
+
+    /* CONTROLS */
+
+    .control-panel {
+        padding: 15px;
+    }
+
+    .control-panel > div {
+        width: 100% !important;
+        display: block !important;
+        margin-right: 0 !important;
+        margin-bottom: 14px;
+    }
+
+
+    /* MAP + SUMMARY */
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 500px;
+    }
+
+    .info-panel {
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        padding: 22px;
+    }
+
+
+    /* TREND */
+
+    .trend-container {
+        padding: 16px;
+    }
+
+    .trend-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .trend-graph-container {
+        width: 100%;
+    }
+
+    .trend-custom-legend {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 15px;
+    }
+
+    .trend-container .legend-item {
+        margin: 12px 0;
+    }
+
+    .legend-name {
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .trend-graph-container {
+        min-width: 0;
+    }
+
+    .trend-graph-container .js-plotly-plot,
+    .trend-graph-container .plot-container,
+    .trend-graph-container .svg-container {
+        width: 100% !important;
+    }
+
+}
