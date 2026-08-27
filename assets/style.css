@@ -396,7 +396,7 @@ body {
     }
 
     .info-panel {
-        width: 95% !important;
+        width: 90% !important;
         height: auto !important;
         min-height: 400px !important;
         box-sizing: border-box !important;
