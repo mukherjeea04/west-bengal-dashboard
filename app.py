@@ -298,8 +298,12 @@ app.layout = html.Div(
                             },
 
                             config={
-                                "displayModeBar": False,
-                                "scrollZoom": False
+                                "displayModeBar": True,
+                                "scrollZoom": False,
+                                "doubleClick": False,
+                                "displaylogo": False
+                                
+
                             }
 
                         )
@@ -605,6 +609,10 @@ def update_map(selected_year, selected_indicator):
     # --------------------------------------------------------
 
     fig.update_layout(
+
+        dragmode=False,
+
+        uirevision="locked-map",
 
         margin={
             "r": 0,
