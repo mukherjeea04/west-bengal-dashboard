@@ -296,7 +296,7 @@ app.layout = html.Div(
             [
 
                 html.H3(
-                    "State Comparison",
+                    "Trend Comparison (Click on a district to add to compare)",
                     className="trend-heading"
                 ),
 
