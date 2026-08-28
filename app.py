@@ -266,8 +266,13 @@ app.layout = html.Div(
                         ),
 
                         html.H3(
-                            "Selected District Summary",
+                            "Selected District",
                             className="panel-heading"
+                        ),
+
+                         html.Div(
+                            "Hover over a district on the map",
+                            className="district-subtitle"
                         ),
 
                         html.Div(

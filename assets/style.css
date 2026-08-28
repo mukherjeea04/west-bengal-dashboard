@@ -288,6 +288,13 @@ body {
     display: none !important;
 }
 
+.district-subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #d61a75;
+    margin-top: -8px;
+    margin-bottom: 18px;
+}
 /* =========================================================
    CUSTOM TREND LEGEND
    ========================================================= */
