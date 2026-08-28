@@ -461,7 +461,7 @@ def update_map(selected_year, selected_indicator):
             "lon": center_lon
         },
 
-        zoom=5.8,
+        zoom=5.2,
 
         labels={
             "value": selected_indicator
