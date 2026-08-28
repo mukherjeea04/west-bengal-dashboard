@@ -299,11 +299,10 @@ app.layout = html.Div(
 
                             config={
                                 "displayModeBar": True,
-                                "scrollZoom": False,
-                                "doubleClick": False,
                                 "displaylogo": False,
-                                "responsive":True
-                                
+                                "responsive": True,
+                                "scrollZoom": False,
+                                "doubleClick": False
                             }
 
                         )
@@ -999,7 +998,9 @@ def update_trend(
 
         showlegend=False,
 
-        legend_title_text=""
+        legend_title_text="",
+
+        dragmode=False
 
     )
 
