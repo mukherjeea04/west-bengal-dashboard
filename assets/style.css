@@ -465,6 +465,12 @@ body {
 
 }
 
+/* Disable touch gestures on map */
 .map-container .js-plotly-plot {
+    touch-action: none !important;
+}
+
+/* Disable touch gestures on trend plot */
+.trend-graph-container .js-plotly-plot {
     touch-action: none !important;
 }
