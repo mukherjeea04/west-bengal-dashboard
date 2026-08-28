@@ -465,3 +465,28 @@ body {
 
 }
 
+/* =========================================================
+   SHOW PLOTLY MODEBAR ON MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 900px) {
+
+    .map-container .modebar {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .map-container .modebar-container {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .map-container .modebar-btn {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+
+}
