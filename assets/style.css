@@ -464,3 +464,7 @@ body {
     }
 
 }
+
+.map-container .js-plotly-plot {
+    touch-action: none !important;
+}
