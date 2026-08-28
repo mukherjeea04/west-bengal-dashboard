@@ -86,12 +86,12 @@ app.layout = html.Div(
             [
 
                 html.H1(
-                    "West Bengal District Dashboard",
+                    "West Bengal Dashboard",
                     className="dashboard-title"
                 ),
 
                 html.Div(
-                    "District-level indicators from NFHS",
+                    "District-level Socio-economic Indicators",
                     className="dashboard-subtitle"
                 )
 
