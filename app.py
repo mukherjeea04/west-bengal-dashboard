@@ -178,7 +178,7 @@ app.layout = html.Div(
 
                             ],
 
-                            value=indicators[0],
+                            value="No Toilet",
 
                             clearable=False
 
