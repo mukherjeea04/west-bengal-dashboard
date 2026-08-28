@@ -51,12 +51,17 @@ body {
    CONTROL PANEL
    ========================================================= */
 
+
+
 .control-panel {
     background-color: rgb(245, 241, 241);
     border: 2px solid #d61a75;
     border-radius: 10px;
     padding: 18px 22px;
     margin-bottom: 18px;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 20px;
 }
 
 .control-label {

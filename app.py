@@ -1,6 +1,6 @@
 import pandas as pd
 import geopandas as gpd
-from dash import Dash, dcc, html, Input, Output
+from dash import Dash, dcc, html, Input, Output, State
 import plotly.express as px
 
 
@@ -11,6 +11,34 @@ import plotly.express as px
 df = pd.read_csv("Dashboard_data.csv")
 
 gdf = gpd.read_file("WEST_BENGAL_DISTRICT_WEB.geojson")
+
+# ============================================================
+# GOAL CONFIGURATION
+# ============================================================
+
+GOAL_CONFIG = {
+    "No Poverty": {
+        "indicator": "Kachha/Semi-Kachha House",
+        "years": ["2015-16", "2019-21"]
+    },
+
+    "Clean Water & Sanitation": {
+        "indicator": "No Toilet",
+        "years": ["2015-16", "2019-21"]
+    },
+
+    "Affordable & Clean Energy": {
+        "indicator": "LPG User",
+        "years": ["2015-16", "2019-21"]
+    },
+
+    "Decent Work & Economic Growth": {
+        "indicator": "Bank A/C Holder",
+        "years": ["2015-16", "2019-21"]
+    }
+}
+
+GOALS = list(GOAL_CONFIG.keys())
 
 # ============================================================
 # STATE-LEVEL VALUES
@@ -91,7 +119,7 @@ app.layout = html.Div(
                 ),
 
                 html.Div(
-                    "District-level Socio-economic Indicators",
+                    "Local Sustainable Development Goals (SDGs) Tracker",
                     className="dashboard-subtitle"
                 )
 
@@ -109,6 +137,38 @@ app.layout = html.Div(
         html.Div(
 
             [
+
+                html.Div(
+                    [
+                        html.Label(
+                            "Goal",
+                            className="control-label"
+                        ),
+
+                        dcc.Dropdown(
+                            id="goal-dropdown",
+
+                            options=[
+                                {
+                                    "label": goal,
+                                    "value": goal
+                                }
+                                for goal in GOALS
+                            ],
+
+                            value="Clean Water & Sanitation",
+
+                            clearable=False
+                        )
+                    ],
+
+                    style={
+                        "width": "30%",
+                        "display": "inline-block",
+                        "marginRight": "3%"
+                    }
+
+                ),
 
                 html.Div(
 
@@ -149,6 +209,7 @@ app.layout = html.Div(
                         "width": "30%",
                         "display": "inline-block",
                         "marginRight": "3%"
+                        
                     }
 
                 ),
@@ -180,7 +241,9 @@ app.layout = html.Div(
 
                             value="No Toilet",
 
-                            clearable=False
+                            clearable=False,
+
+                            disabled=True
 
                         )
 
@@ -374,6 +437,56 @@ app.layout = html.Div(
 
 )
 
+# ============================================================
+#  Goal Callback
+# ============================================================
+
+@app.callback(
+    Output("indicator-dropdown", "options"),
+    Output("indicator-dropdown", "value"),
+    Output("year-dropdown", "options"),
+    Output("year-dropdown", "value"),
+
+    Input("goal-dropdown", "value"),
+
+    State("year-dropdown", "value")
+)
+def update_goal_controls(selected_goal, current_year):
+
+    config = GOAL_CONFIG[selected_goal]
+
+    indicator = config["indicator"]
+    allowed_years = config["years"]
+
+    # Indicator is fixed by the Goal
+    indicator_options = [
+        {
+            "label": indicator,
+            "value": indicator
+        }
+    ]
+
+    # Keep current year if it is allowed;
+    # otherwise select the first available year
+    if current_year in allowed_years:
+        selected_year = current_year
+    else:
+        selected_year = allowed_years[0]
+
+    year_options = [
+        {
+            "label": year,
+            "value": year
+        }
+        for year in allowed_years
+    ]
+
+    return (
+        indicator_options,
+        indicator,
+        year_options,
+        selected_year
+    )
         
 # ============================================================
 # 6. UPDATE MAP + STATE SUMMARY
