@@ -119,7 +119,7 @@ app.layout = html.Div(
                 ),
 
                 html.Div(
-                    "Local Sustainable Development Goals (SDGs) Tracker",
+                    "Local Sustainable Development Goals (LSDGs) Tracker",
                     className="dashboard-subtitle"
                 )
 
