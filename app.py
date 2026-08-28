@@ -301,9 +301,9 @@ app.layout = html.Div(
                                 "displayModeBar": True,
                                 "scrollZoom": False,
                                 "doubleClick": False,
-                                "displaylogo": False
+                                "displaylogo": False,
+                                "responsive":True
                                 
-
                             }
 
                         )
