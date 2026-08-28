@@ -509,7 +509,7 @@ def update_map(selected_year, selected_indicator):
 
         "len": 0.45,
 
-        "x": 0.7,
+        "x": 0.75,
 
         "y": 0.3,
 
