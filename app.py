@@ -16,30 +16,29 @@ gdf = gpd.read_file("WEST_BENGAL_DISTRICT_WEB.geojson")
 # GOAL CONFIGURATION
 # ============================================================
 
-GOAL_CONFIG = {
-    "No Poverty": {
-        "indicator": "Kachha/Semi-Kachha House",
+INDICATOR_CONFIG = {
+    "Kachha/Semi-Kachha House": {
+        "goal": "No Poverty",
         "years": ["2015-16", "2019-21"]
     },
 
-    "Clean Water & Sanitation": {
-        "indicator": "No Toilet",
+    "No Toilet": {
+        "goal": "Clean Water & Sanitation",
         "years": ["2015-16", "2019-21"]
     },
 
-    "Affordable & Clean Energy": {
-        "indicator": "LPG User",
+    "LPG User": {
+        "goal": "Affordable & Clean Energy",
         "years": ["2015-16", "2019-21"]
     },
 
-    "Decent Work & Economic Growth": {
-        "indicator": "Bank A/C Holder",
+    "Bank A/C Holder": {
+        "goal": "Decent Work & Economic Growth",
         "years": ["2015-16", "2019-21"]
     }
 }
 
-GOALS = list(GOAL_CONFIG.keys())
-
+INDICATORS = list(INDICATOR_CONFIG.keys())
 # ============================================================
 # STATE-LEVEL VALUES
 # ============================================================
@@ -136,7 +135,48 @@ app.layout = html.Div(
 
         html.Div(
 
-            [
+            [   
+
+                html.Div(
+                
+                    [
+
+                        html.Label(
+                            "Indicator",
+                            className="control-label"
+                        ),
+
+                        dcc.Dropdown(
+
+                            id="indicator-dropdown",
+
+                            options=[
+
+                                {
+                                    "label": indicator,
+                                    "value": indicator
+                                }
+
+                                for indicator in indicators
+
+                            ],
+
+                            value="No Toilet",
+
+                            clearable=False
+
+                        )
+
+                    ],
+
+                    style={
+                        "width": "30%",
+                        "display": "inline-block",
+                        "marginRight": "3%"
+                    }
+
+                ),
+                
 
                 html.Div(
                     [
@@ -153,12 +193,17 @@ app.layout = html.Div(
                                     "label": goal,
                                     "value": goal
                                 }
-                                for goal in GOALS
+                                for goal in sorted(set(
+                                    config["goal"]
+                                    for config in INDICATOR_CONFIG.values()
+                                ))
                             ],
 
                             value="Clean Water & Sanitation",
 
-                            clearable=False
+                            clearable=False,
+
+                            disabled=True
                         )
                     ],
 
@@ -213,48 +258,6 @@ app.layout = html.Div(
                     }
 
                 ),
-
-
-                html.Div(
-
-                    [
-
-                        html.Label(
-                            "Indicator",
-                            className="control-label"
-                        ),
-
-                        dcc.Dropdown(
-
-                            id="indicator-dropdown",
-
-                            options=[
-
-                                {
-                                    "label": indicator,
-                                    "value": indicator
-                                }
-
-                                for indicator in indicators
-
-                            ],
-
-                            value="No Toilet",
-
-                            clearable=False,
-
-                            disabled=True
-
-                        )
-
-                    ],
-
-                    style={
-                        "width": "30%",
-                        "display": "inline-block"
-                    }
-
-                )
 
             ],
 
@@ -445,32 +448,29 @@ app.layout = html.Div(
 # ============================================================
 
 @app.callback(
-    Output("indicator-dropdown", "options"),
-    Output("indicator-dropdown", "value"),
+    Output("goal-dropdown", "options"),
+    Output("goal-dropdown", "value"),
     Output("year-dropdown", "options"),
     Output("year-dropdown", "value"),
 
-    Input("goal-dropdown", "value"),
+    Input("indicator-dropdown", "value"),
 
     State("year-dropdown", "value")
 )
-def update_goal_controls(selected_goal, current_year):
+def update_indicator_controls(selected_indicator, current_year):
 
-    config = GOAL_CONFIG[selected_goal]
+    config = INDICATOR_CONFIG[selected_indicator]
 
-    indicator = config["indicator"]
+    goal = config["goal"]
     allowed_years = config["years"]
 
-    # Indicator is fixed by the Goal
-    indicator_options = [
+    goal_options = [
         {
-            "label": indicator,
-            "value": indicator
+            "label": goal,
+            "value": goal
         }
     ]
 
-    # Keep current year if it is allowed;
-    # otherwise select the first available year
     if current_year in allowed_years:
         selected_year = current_year
     else:
@@ -485,8 +485,8 @@ def update_goal_controls(selected_goal, current_year):
     ]
 
     return (
-        indicator_options,
-        indicator,
+        goal_options,
+        goal,
         year_options,
         selected_year
     )
